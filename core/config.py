@@ -15,6 +15,10 @@ from ai.prompts.draft_prompt import (
     DRAFT_SYSTEM_PROMPT,
     DRAFT_USER_TEMPLATE,
 )
+from ai.prompts.classify_prompt import (
+    CLASSIFY_SYSTEM_PROMPT,
+    CLASSIFY_USER_TEMPLATE,
+)
 
 
 class PromptSettings(BaseModel):
@@ -25,6 +29,8 @@ class PromptSettings(BaseModel):
     research_finalize_instruction: str = RESEARCH_FINALIZE_INSTRUCTION
     draft_system_prompt: str = DRAFT_SYSTEM_PROMPT
     draft_user_template: str = DRAFT_USER_TEMPLATE
+    classify_system_prompt: str = CLASSIFY_SYSTEM_PROMPT
+    classify_user_template: str = CLASSIFY_USER_TEMPLATE
 
 
 class Settings(BaseSettings):
@@ -52,6 +58,7 @@ class Settings(BaseSettings):
 
     github_pat_key:str
     
+    classify_model:str = "claude-haiku-4-5"
     research_model:str = "claude-sonnet-4-6"
     research_max_iterations: int = 6
     github_mcp_url:str = "https://api.githubcopilot.com/mcp/"
